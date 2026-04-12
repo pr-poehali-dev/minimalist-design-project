@@ -264,13 +264,6 @@ export default function Index() {
     { num: "03", title: "Выбираете и бронируете", desc: "Оформляем всё за вас за 15–30 минут" },
   ];
 
-  const dreamBenefits = [
-    { icon: "Smile", text: "Детям есть чем заняться" },
-    { icon: "Star", text: "Хороший сервис и питание" },
-    { icon: "Sun", text: "Комфортный пляж без сюрпризов" },
-    { icon: "Heart", text: "Вы реально отдыхаете, а не решаете проблемы" },
-  ];
-
   return (
     <div className="font-golos bg-white" style={{ color: "hsl(var(--navy))" }}>
       {quizOpen && <QuizModal onClose={() => setQuizOpen(false)} />}
@@ -517,61 +510,141 @@ export default function Index() {
         </div>
       </section>
 
-      {/* SCREEN 4: DREAM */}
-      <section className="py-20 px-6 md:px-12" style={{ background: "hsl(var(--sand))" }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="reveal mb-4">
-            <span className="text-4xl">🌅</span>
-            <h2
-              className="text-2xl md:text-4xl font-bold mt-4 mb-4 leading-tight"
-              style={{ color: "hsl(var(--navy))" }}
+      {/* SCREEN 4: DREAM — before/after + emotional sell */}
+      <section
+        className="py-24 px-6 md:px-12 relative overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, hsl(215 35% 14%) 0%, hsl(215 35% 22%) 100%)",
+        }}
+      >
+        {/* Decorative blobs */}
+        <div
+          className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-10 blur-3xl pointer-events-none"
+          style={{ background: "hsl(var(--orange))" }}
+        />
+        <div
+          className="absolute -bottom-16 -left-16 w-72 h-72 rounded-full opacity-10 blur-3xl pointer-events-none"
+          style={{ background: "hsl(200 70% 60%)" }}
+        />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          {/* Headline */}
+          <div className="reveal text-center mb-14">
+            <span
+              className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-5"
+              style={{ background: "hsl(var(--orange))", color: "white" }}
             >
-              Спокойный отпуск, где всё уже<br />продумано за вас
+              Представьте картину
+            </span>
+            <h2
+              className="text-3xl md:text-5xl font-bold leading-tight text-white mb-4"
+              style={{ letterSpacing: "-0.02em" }}
+            >
+              Вот как выглядит<br />
+              <span style={{ color: "hsl(28 100% 70%)" }}>отдых без головной боли</span>
             </h2>
-            <p className="text-gray-500 text-base max-w-xl mx-auto leading-relaxed">
-              Вы прилетаете и не разбираетесь «на месте», а отдыхаете
+            <p className="text-base text-gray-400 max-w-xl mx-auto">
+              Разница между «самостоятельным поиском» и «нам уже всё подобрали»
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 mt-10 mb-12">
-            {dreamBenefits.map((b, i) => (
+          {/* Before / After */}
+          <div className="reveal grid md:grid-cols-2 gap-5 mb-14">
+            {/* BEFORE */}
+            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="text-2xl">😩</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-gray-400">Без нас</span>
+              </div>
+              <div className="flex flex-col gap-3">
+                {[
+                  "Часами изучаете отзывы — всё противоречит",
+                  "Бронируете «на удачу» — и боитесь ошибиться",
+                  "Дети хнычут у бассейна: «скучно, мелко»",
+                  "Муж ворчит: «зря потратились»",
+                  "Возвращаетесь домой уставшими",
+                ].map((t, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-red-400 mt-0.5 flex-shrink-0">✕</span>
+                    <p className="text-sm text-gray-400 leading-snug">{t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* AFTER */}
+            <div
+              className="rounded-2xl p-6 md:p-8 relative overflow-hidden"
+              style={{ background: "hsl(var(--orange))" }}
+            >
+              <div
+                className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20"
+                style={{ background: "white" }}
+              />
+              <div className="flex items-center gap-2 mb-6 relative z-10">
+                <span className="text-2xl">🌊</span>
+                <span className="text-sm font-bold uppercase tracking-widest text-orange-100">С нами</span>
+              </div>
+              <div className="flex flex-col gap-3 relative z-10">
+                {[
+                  "За 30 минут — готовая подборка под вашу семью",
+                  "Отель проверен — сюрпризов не будет",
+                  "Дети в восторге: аниматоры, горки, море без камней",
+                  "Вы просто наслаждаетесь и делаете фото",
+                  "Едете снова — уже по рекомендации друзьям",
+                ].map((t, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="text-white font-bold mt-0.5 flex-shrink-0">✓</span>
+                    <p className="text-sm text-white leading-snug font-medium">{t}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Social proof strip */}
+          <div className="reveal grid md:grid-cols-3 gap-4 mb-14">
+            {[
+              { num: "4.9 ★", label: "средняя оценка туров", sub: "по отзывам клиентов" },
+              { num: "1 200+", label: "семей отправлено", sub: "только за последний год" },
+              { num: "87%", label: "возвращаются снова", sub: "или приводят друзей" },
+            ].map((s, i) => (
               <div
                 key={i}
-                className="reveal flex items-center gap-4 bg-white rounded-2xl p-5 text-left shadow-sm"
+                className="reveal text-center rounded-2xl p-5"
+                style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)" }}
               >
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "hsl(var(--blue-light))" }}
+                <p
+                  className="text-3xl font-bold mb-1"
+                  style={{ color: "hsl(28 100% 70%)" }}
                 >
-                  <Icon name={b.icon} size={20} style={{ color: "hsl(var(--orange))" }} />
-                </div>
-                <p className="text-sm font-medium" style={{ color: "hsl(var(--navy))" }}>
-                  {b.text}
+                  {s.num}
                 </p>
+                <p className="text-sm font-semibold text-white mb-0.5">{s.label}</p>
+                <p className="text-xs text-gray-400">{s.sub}</p>
               </div>
             ))}
           </div>
 
-          <div className="reveal bg-white rounded-2xl p-6 mb-8 inline-block">
-            <p className="text-base font-semibold" style={{ color: "hsl(var(--navy))" }}>
-              🔄 Большинство клиентов{" "}
-              <span style={{ color: "hsl(var(--orange))" }}>возвращаются снова</span>{" "}
-              или приходят по рекомендациям
+          {/* CTA */}
+          <div className="reveal text-center">
+            <p className="text-gray-400 text-sm mb-5">
+              Заявка бесплатная · Подборка за 15–30 минут · Без обязательств
             </p>
-          </div>
-
-          <div className="reveal">
             <button
               onClick={() => setQuizOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-base shadow-lg transition-all hover:scale-105"
+              className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-white font-bold text-lg transition-all duration-200 hover:scale-105 active:scale-95"
               style={{
                 background: "hsl(var(--orange))",
-                boxShadow: "0 8px 30px hsl(24 95% 53% / 0.35)",
+                boxShadow: "0 12px 40px hsl(24 95% 53% / 0.5)",
               }}
             >
-              <Icon name="ArrowRight" size={18} />
-              Подобрать тур для семьи
+              <Icon name="Sparkles" size={22} />
+              Хочу такой отдых
             </button>
+            <p className="text-xs text-gray-500 mt-3">
+              Уже 1 200+ семей выбрали через нас — и не пожалели
+            </p>
           </div>
         </div>
       </section>

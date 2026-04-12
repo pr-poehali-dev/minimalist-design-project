@@ -511,47 +511,121 @@ export default function Index() {
       </section>
 
       {/* SCREEN 4: DREAM */}
-      <section className="py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="reveal mb-10">
-            <h2
-              className="text-2xl md:text-4xl font-bold leading-tight mb-6"
-              style={{ color: "hsl(var(--navy))" }}
-            >
-              Спокойный отпуск, где всё уже продумано за вас, который вам так хочется!
-            </h2>
-            <p className="text-base text-gray-500 mb-8">
-              Вы прилетаете и не разбираетесь «на месте», а отдыхаете:
-            </p>
-            <div className="flex flex-col gap-4 text-left max-w-sm mx-auto mb-10">
-              {[
-                "детям есть чем заняться",
-                "хороший сервис и питание",
-                "комфортный пляж без сюрпризов",
-                "вы реально отдыхаете, а не решаете проблемы",
-              ].map((t, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="mt-1 flex-shrink-0 text-lg">—</span>
-                  <p className="text-base text-gray-700">{t}</p>
+      <section className="py-0 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-5 min-h-[560px]">
+
+            {/* LEFT: text block — 60% */}
+            <div className="md:col-span-3 flex flex-col justify-center px-8 md:px-16 py-16">
+              <div className="reveal">
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 mb-6">
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                    style={{ background: "hsl(170 40% 90%)", color: "#2A9D8F" }}
+                  >
+                    Семейный отдых без стресса
+                  </span>
                 </div>
-              ))}
+
+                {/* H1 */}
+                <h2
+                  className="text-3xl md:text-5xl font-bold leading-tight mb-6"
+                  style={{ color: "#1A2B3C", letterSpacing: "-0.02em" }}
+                >
+                  Спокойный отпуск, где всё уже продумано за вас, который вам так хочется!
+                </h2>
+
+                {/* Sub */}
+                <p className="text-lg mb-6" style={{ color: "#4A5568" }}>
+                  Вы прилетаете и не разбираетесь «на месте», а отдыхаете:
+                </p>
+
+                {/* List */}
+                <div className="flex flex-col gap-4 mb-8">
+                  {[
+                    { icon: "Baby", text: "детям есть чем заняться" },
+                    { icon: "UtensilsCrossed", text: "хороший сервис и питание" },
+                    { icon: "Umbrella", text: "комфортный пляж без сюрпризов" },
+                    { icon: "Smile", text: "вы реально отдыхаете, а не решаете проблемы" },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div
+                        className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                        style={{ background: "hsl(170 40% 92%)" }}
+                      >
+                        <Icon name={item.icon} size={16} style={{ color: "#2A9D8F" }} />
+                      </div>
+                      <p className="text-lg" style={{ color: "#4A5568" }}>{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Social proof line */}
+                <div
+                  className="flex items-center gap-2 text-sm italic mb-8 px-4 py-3 rounded-xl"
+                  style={{ background: "#F8F4F0", color: "#6B7280" }}
+                >
+                  <span className="text-base">⭐</span>
+                  <span>
+                    Большинство клиентов{" "}
+                    <strong style={{ color: "#1A2B3C", fontStyle: "normal" }}>возвращаются снова</strong>{" "}
+                    или приходят по рекомендациям
+                  </span>
+                </div>
+
+                {/* CTA row */}
+                <div className="flex flex-wrap items-center gap-5">
+                  <button
+                    onClick={() => setQuizOpen(true)}
+                    className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-semibold text-base transition-all duration-200 hover:brightness-90 active:scale-95"
+                    style={{
+                      background: "#E67E22",
+                      boxShadow: "0 4px 12px rgba(230, 126, 34, 0.3)",
+                    }}
+                  >
+                    Подобрать тур для семьи
+                    <Icon name="ArrowRight" size={18} />
+                  </button>
+
+                  {/* Trust badge */}
+                  <div
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl"
+                    style={{ background: "#F4EFE6", border: "1px solid #E5D9C8" }}
+                  >
+                    <span className="text-lg">🏅</span>
+                    <div>
+                      <p className="text-sm font-bold" style={{ color: "#1A2B3C" }}>92%</p>
+                      <p className="text-xs" style={{ color: "#6B7280" }}>рекомендуют нас</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p className="text-base font-semibold mb-8" style={{ color: "hsl(var(--navy))" }}>
-              Большинство клиентов{" "}
-              <span style={{ color: "hsl(var(--orange))" }}>возвращаются снова</span>{" "}
-              или приходят по рекомендациям
-            </p>
-            <button
-              onClick={() => setQuizOpen(true)}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all hover:scale-105 active:scale-95"
-              style={{
-                background: "hsl(var(--orange))",
-                boxShadow: "0 8px 30px hsl(24 95% 53% / 0.35)",
-              }}
-            >
-              <Icon name="ArrowRight" size={18} />
-              Подобрать тур для семьи
-            </button>
+
+            {/* RIGHT: photo — 40% */}
+            <div className="md:col-span-2 relative hidden md:block">
+              <img
+                src="https://cdn.poehali.dev/projects/7b9861ff-88ff-41d1-86a7-73eb64e7b904/files/4fadb56e-6c92-4b32-abb4-a48eed626393.jpg"
+                alt="Семья на пляже"
+                className="w-full h-full object-cover"
+              />
+              {/* Gradient overlay for readability */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(to right, rgba(255,255,255,0.18) 0%, rgba(248,244,240,0.05) 100%)",
+                }}
+              />
+              {/* Bottom fade */}
+              <div
+                className="absolute bottom-0 left-0 right-0 h-32"
+                style={{
+                  background: "linear-gradient(to top, rgba(255,255,255,0.5) 0%, transparent 100%)",
+                }}
+              />
+            </div>
+
           </div>
         </div>
       </section>

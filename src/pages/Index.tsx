@@ -357,68 +357,103 @@ export default function Index() {
       </section>
 
       {/* SCREEN 2: PROBLEMS */}
-      <section className="py-20 px-6 md:px-12" style={{ background: "hsl(var(--sand))" }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="reveal">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Знакомая ситуация?</p>
-            <h2
-              className="text-2xl md:text-4xl font-bold mb-8 leading-tight"
-              style={{ color: "hsl(var(--navy))" }}
-            >
-              Выбор тура легко может превратиться<br className="hidden md:block" /> в потерю времени и риск испортить отпуск
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4 mb-8">
-            {problems.map((p, i) => (
+      <section className="py-0 overflow-hidden" style={{ background: "hsl(var(--sand))" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-5 min-h-[520px]">
+
+            {/* Photo left */}
+            <div className="md:col-span-2 relative hidden md:block">
+              <img
+                src="https://cdn.poehali.dev/projects/7b9861ff-88ff-41d1-86a7-73eb64e7b904/files/ff478e78-5c29-41a9-b8c5-a69312128436.jpg"
+                alt="Стресс при выборе тура"
+                className="w-full h-full object-cover"
+              />
               <div
-                key={i}
-                className="reveal flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm"
-              >
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "#fee2e2" }}
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(to right, transparent 60%, hsl(40 40% 96%) 100%)" }}
+              />
+            </div>
+
+            {/* Text right */}
+            <div className="md:col-span-3 flex flex-col justify-center px-8 md:px-14 py-16">
+              <div className="reveal">
+                <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Знакомая ситуация?</p>
+                <h2
+                  className="text-2xl md:text-4xl font-bold mb-8 leading-tight"
+                  style={{ color: "hsl(var(--navy))" }}
                 >
-                  <Icon name="X" size={12} className="text-red-500" />
-                </div>
-                <p className="text-sm text-gray-700">{p}</p>
+                  Выбор тура легко может превратиться в потерю времени и риск испортить отпуск
+                </h2>
               </div>
-            ))}
-          </div>
-          <div
-            className="reveal bg-white rounded-2xl p-6 border-l-4"
-            style={{ borderLeftColor: "hsl(var(--orange))" }}
-          >
-            <p className="font-semibold text-lg mb-1" style={{ color: "hsl(var(--navy))" }}>
-              В итоге: или переплата, или отдых «на удачу»
-            </p>
-            <p className="text-gray-500 text-sm">Мы уже отобрали нормальные варианты — без мусора и риска</p>
-          </div>
-          <div className="reveal mt-8 text-center">
-            <p className="text-sm text-gray-500 mb-4">Оставьте заявку на подбор за 15 мин!</p>
-            <button
-              onClick={() => setQuizOpen(true)}
-              className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-white font-semibold shadow-md transition-all hover:scale-105"
-              style={{ background: "hsl(var(--orange))" }}
-            >
-              <Icon name="Search" size={18} />
-              Подобрать тур
-            </button>
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                {problems.map((p, i) => (
+                  <div
+                    key={i}
+                    className="reveal flex items-start gap-3 bg-white rounded-xl p-4 shadow-sm"
+                  >
+                    <div
+                      className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ background: "#fee2e2" }}
+                    >
+                      <Icon name="X" size={12} className="text-red-500" />
+                    </div>
+                    <p className="text-sm text-gray-700">{p}</p>
+                  </div>
+                ))}
+              </div>
+              <div
+                className="reveal bg-white rounded-2xl p-6 border-l-4 mb-8"
+                style={{ borderLeftColor: "hsl(var(--orange))" }}
+              >
+                <p className="font-semibold text-lg mb-1" style={{ color: "hsl(var(--navy))" }}>
+                  В итоге: или переплата, или отдых «на удачу»
+                </p>
+                <p className="text-gray-500 text-sm">Мы уже отобрали нормальные варианты — без мусора и риска</p>
+              </div>
+              <div className="reveal">
+                <p className="text-sm text-gray-500 mb-4">Оставьте заявку на подбор за 15 мин!</p>
+                <button
+                  onClick={() => setQuizOpen(true)}
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-white font-semibold shadow-md transition-all hover:scale-105"
+                  style={{ background: "hsl(var(--orange))" }}
+                >
+                  <Icon name="Search" size={18} />
+                  Подобрать тур
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* SCREEN 3: HOW IT WORKS */}
-      <section className="py-20 px-6 md:px-12 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="reveal mb-12 text-center">
-            <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Просто и быстро</p>
-            <h2
-              className="text-2xl md:text-4xl font-bold leading-tight"
-              style={{ color: "hsl(var(--navy))" }}
+      <section className="py-0 overflow-hidden bg-white">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Top photo banner */}
+          <div className="relative w-full h-64 md:h-80 overflow-hidden">
+            <img
+              src="https://cdn.poehali.dev/projects/7b9861ff-88ff-41d1-86a7-73eb64e7b904/files/37e99f0c-4013-4f67-82c6-631b0423be23.jpg"
+              alt="Подбор тура с менеджером"
+              className="w-full h-full object-cover object-top"
+            />
+            <div
+              className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+              style={{ background: "rgba(26, 43, 60, 0.58)" }}
             >
-              Подбор тура под семейный отдых<br />за 30 минут — без хаоса и сомнений
-            </h2>
+              <p className="text-xs font-semibold uppercase tracking-widest text-orange-300 mb-3">Просто и быстро</p>
+              <h2
+                className="text-2xl md:text-4xl font-bold leading-tight text-white"
+              >
+                Подбор тура под семейный отдых<br />за 30 минут — без хаоса и сомнений
+              </h2>
+            </div>
           </div>
+
+        <div className="px-6 md:px-12 py-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="reveal mb-12" />
 
           <div className="grid md:grid-cols-3 gap-6 mb-14">
             {steps.map((s, i) => (
@@ -507,6 +542,8 @@ export default function Index() {
               Получить подборку туров
             </button>
           </div>
+        </div>
+        </div>
         </div>
       </section>
 
@@ -641,15 +678,20 @@ export default function Index() {
           </div>
 
           <div className="reveal grid md:grid-cols-2 gap-8">
-            <div
-              className="rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-3"
-              style={{ background: "hsl(var(--blue-light))", minHeight: "256px" }}
-            >
-              <Icon name="MapPin" size={40} style={{ color: "hsl(var(--orange))" }} />
-              <p className="text-sm font-semibold" style={{ color: "hsl(var(--navy))" }}>Офис в Москве</p>
-              <p className="text-xs text-gray-500 text-center px-4">
-                Карта появится после указания точного адреса
-              </p>
+            <div className="rounded-2xl overflow-hidden relative" style={{ minHeight: "280px" }}>
+              <img
+                src="https://cdn.poehali.dev/projects/7b9861ff-88ff-41d1-86a7-73eb64e7b904/files/6f9cbd2c-d6db-4de9-8c43-aebec3afac55.jpg"
+                alt="Офис в Москве"
+                className="w-full h-full object-cover"
+                style={{ minHeight: "280px" }}
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 px-5 py-4 flex items-center gap-2"
+                style={{ background: "rgba(26,43,60,0.72)" }}
+              >
+                <Icon name="MapPin" size={18} style={{ color: "hsl(var(--orange))" }} />
+                <p className="text-sm font-semibold text-white">Офис в Москве</p>
+              </div>
             </div>
 
             <div className="flex flex-col justify-between gap-5">
